@@ -29,9 +29,9 @@ logging_config = {
     },
     'handlers': {
         'brief': {
-            'class': 'logging.FileHandler',
+            'class': 'logging.StreamHandler',
             'formatter': 'brief',
-            'filename': 'runner.log',
+            'stream': 'ext://sys.stdout',
         },
     },
     'loggers': {
