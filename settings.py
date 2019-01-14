@@ -16,3 +16,5 @@ YOUTUBE_COMMENT_TEMPLATE = """
 
 {link}
 """
+
+DEBUG = False

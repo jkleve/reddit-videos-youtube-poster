@@ -86,6 +86,9 @@ def post_videos(client, playlist):
         else:
             log.debug('Video {} already posted'.format(new_post.link))
 
+        if DEBUG:  # only do one case in debug
+            break
+
 
 def get_video_id(link):
     """Return the Youtube video ID given a youtube video link"""
