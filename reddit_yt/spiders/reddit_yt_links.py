@@ -6,7 +6,7 @@ from reddit_yt.items import RedditYtItem
 class RedditYtLinksSpider(scrapy.Spider):
     name = 'reddit-yt-links'
     # allowed_domains = ['http://www.reddit.com/r/videos/']
-    start_urls = ['http://www.reddit.com/r/videos/']
+    start_urls = ['http://www.reddit.com/r/videos/top/']
 
     def parse(self, response):
         for post in response.xpath('//div[contains(@class, "Post")]'):
