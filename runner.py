@@ -1,6 +1,7 @@
 import sys
 
 from datetime import datetime, timedelta
+from googleapiclient.errors import HttpError
 from logging import getLogger
 from logging.config import dictConfig
 from scrapy.crawler import CrawlerProcess
@@ -76,7 +77,10 @@ def post_videos(client, playlist):
                 # comment on video
                 video = YoutubeVideo(client, video_id)
                 comment = YOUTUBE_COMMENT_TEMPLATE.format(title=new_post.title, link=new_post.reddit_link)
-                video.comment_thread(YOUTUBE_CHANNEL_ID, comment)
+                try:
+                    video.comment_thread(YOUTUBE_CHANNEL_ID, comment)
+                except HttpError:
+                    log.warning('Failed to post comment to {}'.format(new_post.link))
 
                 # save to database
                 Post.create(title=new_post.title, link=new_post.link,
