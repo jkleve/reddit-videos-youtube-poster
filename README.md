@@ -1,3 +1,5 @@
+[Youtube playlist](https://www.youtube.com/playlist?list=PL_3yUKBsaMOxCDcm2yt0Q1nHTnAYgTAAq)
+
 ## Getting Started
 
 #### Virtual Env
